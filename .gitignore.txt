@@ -19,8 +19,6 @@ npm-debug.log
 
 # User-specific stuff:
 .idea/**/workspace.xml
-/find_pi_to_the_nth_digit/.idea/workspace.xml
-/conways_game_of_life/.idea/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
 
@@ -32,6 +30,8 @@ npm-debug.log
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
+
+test/**
 
 # Gradle:
 .idea/**/gradle.xml
