@@ -31,7 +31,7 @@ npm-debug.log
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 
-test/**
+test/
 
 # Gradle:
 .idea/**/gradle.xml
