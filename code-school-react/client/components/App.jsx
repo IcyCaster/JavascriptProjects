@@ -18,23 +18,42 @@ export default class App extends React.Component {
 
 class CommentBox extends React.Component {
 
+    constructor() {
+        super();
+
+        this.state = {
+            showComments: false
+        };
+    }
+
     render() {
         const comments = this._getComments();
         const count = this._getCommentsTitle(comments.length);
+
+        let buttonText = "Show comments";
+        let commentNodes; 
+
+        if (this.state.showComments) {
+            buttonText = "Hide comments";
+            commentNodes = <div className="comment-list">{comments}</div>;
+        }
+
         return (
             <div className="comment-box">
-                <h3>Comments</h3>
-                <h4 className="comment-count">{count}</h4>
-                <div className="comment-list">
-                    {comments}
-                </div>
+                <h4 className="h4">{this._getCommentsTitle(comments.length)}</h4>
+                <button onClick={this._handleClick.bind(this)}>{buttonText}</button>
+                {commentNodes}
             </div>
-
         );
     }
 
-    _getComments()
-    {
+    _handleClick(){
+        this.setState({
+            showComments: !this.state.showComments
+        });
+    }
+
+    _getComments() {
         const commentList = [
             {id: 1, author: "Bob", body: "This is neat!"},
             {id: 2, author: "Jill", body: "Hmmmmm"},
@@ -48,10 +67,10 @@ class CommentBox extends React.Component {
     }
 
     _getCommentsTitle(count) {
-        if(count === 0) {
+        if (count === 0) {
             return "No comments";
         }
-        if(count === 1) {
+        if (count === 1) {
             return "1 comment";
         }
         else {
